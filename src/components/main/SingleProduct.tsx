@@ -13,18 +13,17 @@ function SingleProduct({ pro }: ProductDetails) {
       <Col>
         <Card className="my-2">
           <Card.Img
-            className="card-img-single"
+            className="card-img-single p-2"
             variant="top"
             src={pro.imageUrl}
           />
           <Card.Body>
-            <Card.Title>Card title</Card.Title>
-            <Card.Text>
-              This is a longer card with supporting text below as a natural
-              lead-in to additional content. This content is a little bit
-              longer.
-            </Card.Text>
+            <Card.Title>{pro.name}</Card.Title>
+            <Card.Text>{pro.description}</Card.Text>
           </Card.Body>
+          <Card.Footer>
+            <small className="text-muted">{pro.brand}</small>
+          </Card.Footer>
         </Card>
       </Col>
     </div>

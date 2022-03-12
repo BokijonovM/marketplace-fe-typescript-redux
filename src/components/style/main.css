@@ -1,4 +1,13 @@
 .card-img-single {
-  height: 150px;
+  height: 200px;
   object-fit: cover;
+}
+.row__posters {
+  display: flex;
+  flex-wrap: nowrap;
+  overflow-y: hidden;
+  overflow-x: scroll;
+}
+.row__posters::-webkit-scrollbar {
+  display: none;
 }

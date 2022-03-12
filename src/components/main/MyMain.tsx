@@ -2,6 +2,7 @@ import React, { useEffect, useState } from "react";
 import { Row, Container } from "react-bootstrap";
 import { Product } from "../../types/index";
 import SingleProduct from "./SingleProduct";
+import MyCarousel from "./MyFirstPage";
 
 function MyMain() {
   const [product, setProduct] = useState<Product[]>([]);
@@ -22,8 +23,14 @@ function MyMain() {
   }, []);
   return (
     <div>
+      <div>
+        <MyCarousel />
+      </div>
       <Container fluid>
-        <Row xs={1} md={2} lg={4} className="g-4 my-3">
+        <div className="my-3">
+          <h4 className="mb-0">New Products</h4>
+        </div>
+        <Row xs={1} md={2} lg={4} className="g-4 my-3 row__posters">
           {product.map((pro) => {
             return <SingleProduct pro={pro} key={pro._id} />;
           })}
