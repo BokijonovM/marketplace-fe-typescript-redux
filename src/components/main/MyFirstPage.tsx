@@ -1,4 +1,25 @@
+import { useEffect, useState } from "react";
+import { Product } from "../../types/index";
+
 export default function MyCarousel() {
+  const [singleProduct, setSingleProduct] = useState<Product[]>([]);
+
+  const fetchProduct = async () => {
+    try {
+      let res = await fetch(process.env.REACT_APP_API + "product");
+      if (res.ok) {
+        let data = await res.json();
+        console.log(data);
+        setSingleProduct(data);
+      }
+    } catch (error) {
+      console.log(error);
+    }
+  };
+  useEffect(() => {
+    fetchProduct();
+  }, []);
+
   return (
     <div className="relative bg-white overflow-hidden">
       <div className="pt-16 pb-80 sm:pt-24 sm:pb-40 lg:pt-40 lg:pb-48">
@@ -22,59 +43,52 @@ export default function MyCarousel() {
                 <div className="absolute transform sm:left-1/2 sm:top-0 sm:translate-x-8 lg:left-1/2 lg:top-1/2 lg:-translate-y-1/2 lg:translate-x-8">
                   <div className="flex items-center space-x-6 lg:space-x-8">
                     <div className="flex-shrink-0 grid grid-cols-1 gap-y-6 lg:gap-y-8">
-                      <div className="w-44 h-64 rounded-lg overflow-hidden sm:opacity-0 lg:opacity-100">
-                        <img
-                          src="https://tailwindui.com/img/ecommerce-images/home-page-03-hero-image-tile-01.jpg"
-                          alt=""
-                          className="w-full h-full object-center object-cover"
-                        />
-                      </div>
-                      <div className="w-44 h-64 rounded-lg overflow-hidden">
-                        <img
-                          src="https://tailwindui.com/img/ecommerce-images/home-page-03-hero-image-tile-02.jpg"
-                          alt=""
-                          className="w-full h-full object-center object-cover"
-                        />
-                      </div>
+                      {singleProduct.slice(-8, -6).map((d) => {
+                        return (
+                          <div
+                            className="w-44 h-64 rounded-lg overflow-hidden sm:opacity-0 lg:opacity-100"
+                            key={d._id}
+                          >
+                            <img
+                              src={d.imageUrl}
+                              alt=""
+                              className="w-full h-full object-center object-cover"
+                            />
+                          </div>
+                        );
+                      })}
                     </div>
                     <div className="flex-shrink-0 grid grid-cols-1 gap-y-6 lg:gap-y-8">
-                      <div className="w-44 h-64 rounded-lg overflow-hidden">
-                        <img
-                          src="https://tailwindui.com/img/ecommerce-images/home-page-03-hero-image-tile-03.jpg"
-                          alt=""
-                          className="w-full h-full object-center object-cover"
-                        />
-                      </div>
-                      <div className="w-44 h-64 rounded-lg overflow-hidden">
-                        <img
-                          src="https://tailwindui.com/img/ecommerce-images/home-page-03-hero-image-tile-04.jpg"
-                          alt=""
-                          className="w-full h-full object-center object-cover"
-                        />
-                      </div>
-                      <div className="w-44 h-64 rounded-lg overflow-hidden">
-                        <img
-                          src="https://tailwindui.com/img/ecommerce-images/home-page-03-hero-image-tile-05.jpg"
-                          alt=""
-                          className="w-full h-full object-center object-cover"
-                        />
-                      </div>
+                      {singleProduct.slice(-6, -3).map((d) => {
+                        return (
+                          <div
+                            className="w-44 h-64 rounded-lg overflow-hidden sm:opacity-0 lg:opacity-100"
+                            key={d._id}
+                          >
+                            <img
+                              src={d.imageUrl}
+                              alt=""
+                              className="w-full h-full object-center object-cover"
+                            />
+                          </div>
+                        );
+                      })}
                     </div>
                     <div className="flex-shrink-0 grid grid-cols-1 gap-y-6 lg:gap-y-8">
-                      <div className="w-44 h-64 rounded-lg overflow-hidden">
-                        <img
-                          src="https://tailwindui.com/img/ecommerce-images/home-page-03-hero-image-tile-06.jpg"
-                          alt=""
-                          className="w-full h-full object-center object-cover"
-                        />
-                      </div>
-                      <div className="w-44 h-64 rounded-lg overflow-hidden">
-                        <img
-                          src="https://tailwindui.com/img/ecommerce-images/home-page-03-hero-image-tile-07.jpg"
-                          alt=""
-                          className="w-full h-full object-center object-cover"
-                        />
-                      </div>
+                      {singleProduct.slice(-2).map((d) => {
+                        return (
+                          <div
+                            className="w-44 h-64 rounded-lg overflow-hidden sm:opacity-0 lg:opacity-100"
+                            key={d._id}
+                          >
+                            <img
+                              src={d.imageUrl}
+                              alt=""
+                              className="w-full h-full object-center object-cover"
+                            />
+                          </div>
+                        );
+                      })}
                     </div>
                   </div>
                 </div>
