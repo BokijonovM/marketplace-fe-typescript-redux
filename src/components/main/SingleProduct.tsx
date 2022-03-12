@@ -20,12 +20,12 @@ function SingleProduct({ pro }: ProductDetails) {
         </div>
         <div className="mt-4 flex justify-between">
           <div>
-            <h3 className="text-sm text-gray-700">
-              <h5 className="mb-n2">
+            <h5 className="text-sm text-gray-700 product-name-span">
+              <span className="mb-n2">
                 <span aria-hidden="true" className="absolute inset-0" />
-                {pro.name}
-              </h5>
-            </h3>
+                {pro.name.slice(0, 18)}
+              </span>
+            </h5>
             <p className="mt-1 text-sm text-gray-500">{pro.brand}</p>
           </div>
           <p className="text-sm font-medium text-gray-900">${pro.price}</p>
