@@ -7,6 +7,7 @@ import MyFooter from "./components/files/MyFooter";
 import { BrowserRouter, Route, Routes } from "react-router-dom";
 import MyMain from "./components/main/MyMain";
 import MyDetails from "./components/details/MyDetails";
+import SignUp from "./components/signin/SignUp";
 
 function App() {
   return (
@@ -16,7 +17,9 @@ function App() {
         <Routes>
           <Route path="/" element={<MyMain />} />
           <Route path="/details/:_id" element={<MyDetails />} />
+          <Route path="/sign-up" element={<SignUp />} />
         </Routes>
+
         <MyFooter />
       </div>
     </BrowserRouter>

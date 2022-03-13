@@ -7,6 +7,7 @@ import {
   XIcon,
 } from "@heroicons/react/outline";
 import "../style/navbar.css";
+import { Link, useNavigate } from "react-router-dom";
 
 const navigation = {
   categories: [
@@ -143,6 +144,7 @@ function classNames(...classes: any) {
 }
 
 export default function TailNav() {
+  const navigate = useNavigate();
   const [open, setOpen] = useState(false);
 
   return (
@@ -186,7 +188,6 @@ export default function TailNav() {
                   <XIcon className="h-6 w-6" aria-hidden="true" />
                 </button>
               </div>
-
               {/* Links */}
               <Tab.Group as="div" className="mt-2">
                 <div className="border-b border-gray-200">
@@ -267,7 +268,6 @@ export default function TailNav() {
                   ))}
                 </Tab.Panels>
               </Tab.Group>
-
               <div className="border-t border-gray-200 py-6 px-4 space-y-6">
                 {navigation.pages.map((page) => (
                   <div key={page.name} className="flow-root">
@@ -280,7 +280,6 @@ export default function TailNav() {
                   </div>
                 ))}
               </div>
-
               <div className="border-t border-gray-200 py-6 px-4 space-y-6">
                 <div className="flow-root">
                   <a
@@ -290,16 +289,21 @@ export default function TailNav() {
                     Sign in
                   </a>
                 </div>
-                <div className="flow-root">
-                  <a
-                    href="#"
-                    className="-m-2 p-2 block font-medium text-gray-900"
+                <Link to="/sign-up">
+                  <div
+                    className="flow-root"
+                    onClick={() => navigate("/sign-up")}
                   >
-                    Create account
-                  </a>
-                </div>
+                    <a
+                      href="/sign-up"
+                      className="-m-2 p-2 block font-medium text-gray-900"
+                    >
+                      Create account
+                    </a>
+                  </div>
+                </Link>
               </div>
-
+              d
               <div className="border-t border-gray-200 py-6 px-4">
                 <a href="#" className="-m-2 p-2 flex items-center">
                   <img
