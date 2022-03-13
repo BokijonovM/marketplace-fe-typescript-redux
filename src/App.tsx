@@ -6,6 +6,7 @@ import MyNav from "./components/files/MyNav";
 import MyFooter from "./components/files/MyFooter";
 import { BrowserRouter, Route, Routes } from "react-router-dom";
 import MyMain from "./components/main/MyMain";
+import MyDetails from "./components/details/MyDetails";
 
 function App() {
   return (
@@ -14,6 +15,7 @@ function App() {
         <MyNav />
         <Routes>
           <Route path="/" element={<MyMain />} />
+          <Route path="/details/:_id" element={<MyDetails />} />
         </Routes>
         <MyFooter />
       </div>

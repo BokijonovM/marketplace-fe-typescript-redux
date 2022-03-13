@@ -1,7 +1,9 @@
 import { useEffect, useState } from "react";
 import { Product } from "../../types/index";
+import { useNavigate, Link } from "react-router-dom";
 
 export default function MyCarousel() {
+  const navigate = useNavigate();
   const [singleProduct, setSingleProduct] = useState<Product[]>([]);
 
   const fetchProduct = async () => {
@@ -23,7 +25,7 @@ export default function MyCarousel() {
   return (
     <div className="relative bg-white overflow-hidden">
       <div className="pt-16 pb-80 sm:pt-24 sm:pb-40 lg:pt-40 lg:pb-48">
-        <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 sm:static">
+        <div className="relative max-w-7xl mx-auto p-4 sm:px-6 lg:px-8 sm:static">
           <div className="sm:max-w-lg">
             <h1 className="text-4xl font font-extrabold tracking-tight text-gray-900 sm:text-6xl">
               Summer styles are finally here
@@ -34,7 +36,7 @@ export default function MyCarousel() {
             </p>
           </div>
           <div>
-            <div className="mt-10">
+            <div className="mt-10 tabs-second-page-pagination">
               {/* Decorative image grid */}
               <div
                 aria-hidden="true"
@@ -45,16 +47,18 @@ export default function MyCarousel() {
                     <div className="flex-shrink-0 grid grid-cols-1 gap-y-6 lg:gap-y-8">
                       {singleProduct.slice(-8, -6).map((d) => {
                         return (
-                          <div
-                            className="w-44 h-64 rounded-lg overflow-hidden sm:opacity-0 lg:opacity-100"
-                            key={d._id}
-                          >
-                            <img
-                              src={d.imageUrl}
-                              alt=""
-                              className="w-full h-full object-center object-cover"
-                            />
-                          </div>
+                          <Link to={`/details/${d._id}`}>
+                            <div
+                              className="w-44 h-64 rounded-lg overflow-hidden sm:opacity-0 lg:opacity-100 "
+                              key={d._id}
+                            >
+                              <img
+                                src={d.imageUrl}
+                                alt=""
+                                className="w-full h-full object-center object-cover"
+                              />
+                            </div>
+                          </Link>
                         );
                       })}
                     </div>

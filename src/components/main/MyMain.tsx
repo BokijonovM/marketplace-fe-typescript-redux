@@ -3,6 +3,7 @@ import { Row, Container } from "react-bootstrap";
 import { Product } from "../../types/index";
 import SingleProduct from "./SingleProduct";
 import MyCarousel from "./MyFirstPage";
+import MySecondPage from "./MySecondPage";
 
 function MyMain() {
   const [product, setProduct] = useState<Product[]>([]);
@@ -33,13 +34,14 @@ function MyMain() {
           </h2>
           <div className="mt-6 grid grid-cols-1 gap-y-10 gap-x-6 sm:grid-cols-2 lg:grid-cols-4 xl:gap-x-8">
             {product
-              .slice(-8)
+              .slice(-4)
               .reverse()
               .map((pro) => {
                 return <SingleProduct pro={pro} key={pro._id} />;
               })}
           </div>
         </div>
+        <MySecondPage />
       </Container>
     </div>
   );
