@@ -54,6 +54,7 @@ export default function MyCarousel() {
                             >
                               <img
                                 src={d.imageUrl}
+                                onClick={() => navigate(`/details/${d._id}`)}
                                 alt=""
                                 className="w-full h-full object-center object-cover"
                               />

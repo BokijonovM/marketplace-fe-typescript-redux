@@ -49,12 +49,14 @@ export default function MySecondPage() {
     <Box sx={{ width: "100%" }}>
       <Box
         sx={{ borderBottom: 1, borderColor: "divider" }}
-        className="tabs-second-page-pagination"
+        className="tabs-second-page-pagination d-flex justify-content-center"
       >
         <Tabs
           value={value}
           onChange={handleChange}
           aria-label="basic tabs example"
+          textColor="secondary"
+          indicatorColor="secondary"
         >
           <Tab label="Item One" {...a11yProps(0)} />
           <Tab label="Item Two" {...a11yProps(1)} />
