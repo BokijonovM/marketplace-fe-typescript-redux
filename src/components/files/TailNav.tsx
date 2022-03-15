@@ -341,10 +341,10 @@ export default function TailNav() {
 
               {/* Logo */}
               <div className="ml-4 flex lg:ml-0">
-                <a href="/">
+                <Link to="/">
                   <span className="sr-only">Workflow</span>
                   <img className="h-8 w-auto" src={logo} alt="" />
-                </a>
+                </Link>
               </div>
 
               {/* Flyout menus */}
@@ -473,12 +473,12 @@ export default function TailNav() {
 
               <div className="ml-auto flex items-center">
                 <div className="hidden lg:flex lg:flex-1 lg:items-center lg:justify-end lg:space-x-6">
-                  <a
-                    href="/sign-up"
+                  <Link
+                    to="/sign-up"
                     className="text-sm font-medium text-gray-700 hover:text-gray-800"
                   >
-                    Create account
-                  </a>
+                    <p className="mb-0"> Create account</p>
+                  </Link>
                 </div>
 
                 {/* Search */}
